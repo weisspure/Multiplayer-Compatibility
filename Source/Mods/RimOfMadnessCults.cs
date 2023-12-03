@@ -82,14 +82,14 @@ namespace Multiplayer.Compat
 
             // Building_TotemFertility
             {
-                var type = AccessTools.TypeByName("CultOfCthulhu.Building_SacrificialAltar");
+                var type = AccessTools.TypeByName("CultOfCthulhu.Building_TotemFertility");
                 // this calls a delegate may need to sync that instead
                 MP.RegisterSyncMethod(type, "MakeMatchingGrowZone"); // Gizmo? -> MakeMatchingGrowZone   
             }
 
             // Building_TreasureChest
             {
-                var type = AccessTools.TypeByName("CultOfCthulhu.Building_SacrificialAltar");
+                var type = AccessTools.TypeByName("CultOfCthulhu.Building_TreasureChest");
                 // this calls a delegate may need to sync that instead
                 MP.RegisterSyncMethod(type, "MakeMatchingGrowZone"); // Gizmo? -> MakeMatchingGrowZone   
             }
