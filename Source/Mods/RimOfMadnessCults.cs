@@ -23,7 +23,6 @@ namespace Multiplayer.Compat
 //                    "CultOfCthulhu.DamageWorker_PsionicBlast:PushEffect",
                     "CultOfCthulhu.MapComponent_LocalCultTracker:NeedSeedCountDown",
                     "CultOfCthulhu.Building_SacrificialAltar:ShouldAttendWorship",
-                    "CultOfCthulhu.Building_WombBetweenWorlds:Activate",
                     // Unknown
                 };
 
