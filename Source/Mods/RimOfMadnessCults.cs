@@ -18,14 +18,14 @@ namespace Multiplayer.Compat
         {
             PatchCultOfCthulhu();
 
-            // CallOfCthulhuCult
-            {
-                var type = AccessTools.TypeByName("CallOfCthulhu.Dialog_CosmicEntityInfoBox");
-                MP.RegisterSyncMethod(type, "DoWindowContents"); // Draw Menu
-                MP.RegisterSyncMethod(type, "OnCancelKeyPressed"); // Menu -> Cancel Button
-                MP.RegisterSyncMethod(type, "OnAcceptKeyPressed"); // Menu -> Accept Button
-                MP.RegisterSyncMethod(type, "CreateConfirmation"); // Seems to be empty implementation?
-            }
+            //// CallOfCthulhuCult
+            //{
+            //    var type = AccessTools.TypeByName("CallOfCthulhu.Dialog_CosmicEntityInfoBox");
+            //    MP.RegisterSyncMethod(type, "DoWindowContents"); // Draw Menu
+            //    MP.RegisterSyncMethod(type, "OnCancelKeyPressed"); // Menu -> Cancel Button
+            //    MP.RegisterSyncMethod(type, "OnAcceptKeyPressed"); // Menu -> Accept Button
+            //    MP.RegisterSyncMethod(type, "CreateConfirmation"); // Seems to be empty implementation?
+            //}
         }
 
         private static void PatchCultOfCthulhu()
@@ -79,12 +79,6 @@ namespace Multiplayer.Compat
                 MpCompat.RegisterLambdaMethod(type, "GetGizmos", lambdaOrdinals).SetDebugOnly();
             }
 
-            // Building_TotemFertility
-            {
-                var type = AccessTools.TypeByName("CultOfCthulhu.Building_TotemFertility");
-                // this calls a delegate may need to sync that instead
-                //MP.RegisterSyncMethod(type, "MakeMatchingGrowZone"); // Gizmo? -> MakeMatchingGrowZone   
-            }
 
             // SpellWorker_PsionicGrowth
             {
