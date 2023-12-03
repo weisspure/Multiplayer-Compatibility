@@ -91,7 +91,7 @@ namespace Multiplayer.Compat
             {
                 var type = AccessTools.TypeByName("CultOfCthulhu.Building_TreasureChest");
                 // this calls a delegate may need to sync that instead
-                MP.RegisterSyncMethod(type, "MakeMatchingGrowZone"); // Gizmo? -> MakeMatchingGrowZone   
+                MP.RegisterSyncMethod(type, "Open"); // Menu? -> Open
             }
         }
     }
