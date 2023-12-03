@@ -86,13 +86,6 @@ namespace Multiplayer.Compat
                 //MP.RegisterSyncMethod(type, "MakeMatchingGrowZone"); // Gizmo? -> MakeMatchingGrowZone   
             }
 
-            // Building_TreasureChest
-            {
-                var type = AccessTools.TypeByName("CultOfCthulhu.Building_TreasureChest");
-                // this calls a delegate may need to sync that instead
-                //MP.RegisterSyncMethod(type, "Open"); // Menu? -> Open
-            }
-
             // SpellWorker_PsionicGrowth
             {
                 PatchingUtilities.PatchSystemRand("CultOfCthulhu.SpellWorker_PsionicGrowth:TryExecuteWorker", false);
