@@ -18,7 +18,7 @@ namespace Multiplayer.Compat
             {
                 string[] methodsWithRand = {
                     // Checked
-//                    "CultOfCthulhu.Building_SacrificialAltar:ShouldAttendWorship",
+                    "CultOfCthulhu.SpellWorker_PsionicGrowth:TryExecuteWorker",
                     // Unknown
                 };
 
