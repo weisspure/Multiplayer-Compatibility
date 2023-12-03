@@ -18,11 +18,7 @@ namespace Multiplayer.Compat
             {
                 string[] methodsWithRand = {
                     // Checked
-
-                    // Suspected
-//                    "CultOfCthulhu.DamageWorker_PsionicBlast:PushEffect",
-                    "CultOfCthulhu.MapComponent_LocalCultTracker:NeedSeedCountDown",
-                    "CultOfCthulhu.Building_SacrificialAltar:ShouldAttendWorship",
+//                    "CultOfCthulhu.Building_SacrificialAltar:ShouldAttendWorship",
                     // Unknown
                 };
 
