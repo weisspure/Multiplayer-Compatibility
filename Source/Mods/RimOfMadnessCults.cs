@@ -42,7 +42,6 @@ namespace Multiplayer.Compat
 
                 var methodNames = new[]
                 {
-                    "TryChangeWorshipValues", // Menu? -> TryChangeWorshipValues
                     "TryUpgrade", // Gizmo -> TryUpgrade
                     "TrySacrifice", // Gizmo -> TrySacrifice
                     "CancelSacrifice", // Gizmo -> CancelSacrifice
@@ -84,7 +83,7 @@ namespace Multiplayer.Compat
             {
                 var type = AccessTools.TypeByName("CultOfCthulhu.Building_TotemFertility");
                 // this calls a delegate may need to sync that instead
-                MP.RegisterSyncMethod(type, "MakeMatchingGrowZone"); // Gizmo? -> MakeMatchingGrowZone   
+                //MP.RegisterSyncMethod(type, "MakeMatchingGrowZone"); // Gizmo? -> MakeMatchingGrowZone   
             }
 
             // Building_TreasureChest
