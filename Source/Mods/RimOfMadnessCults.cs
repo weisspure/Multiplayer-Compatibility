@@ -93,6 +93,11 @@ namespace Multiplayer.Compat
                 // this calls a delegate may need to sync that instead
                 //MP.RegisterSyncMethod(type, "Open"); // Menu? -> Open
             }
+
+            // SpellWorker_PsionicGrowth
+            {
+                PatchingUtilities.PatchSystemRand("CultOfCthulhu.SpellWorker_PsionicGrowth:TryExecuteWorker", false);
+            }
         }
     }
 }
