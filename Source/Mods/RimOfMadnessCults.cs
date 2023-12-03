@@ -59,28 +59,35 @@ namespace Multiplayer.Compat
                     MP.RegisterSyncMethod(type, method);
                 }
 
-                // Lambda Delegates
+                // Lambda Delegates (Dev mode Gizmos)
                 var lambdaOrdinals = new[]
                 {
-                    1, // Gizmo -> Debug: Discover All Deities
-                    2, // Gizmo -> Debug: All Favor to 0
-                    5, // Gizmo -> Debug: Unlock All Spells
+                    1, // Debug: Discover All Deities
+                    2, // Debug: All Favor to 0
+                    5, // Debug: Unlock All Spells
                 };
 
-                MpCompat.RegisterLambdaDelegate(type, "GetGizmos", lambdaOrdinals);
+                MpCompat.RegisterLambdaDelegate(type, "GetGizmos", lambdaOrdinals).SetDebugOnly();
 
-                // Lambda Methods
+                // Lambda Methods (Dev mode Gizmos)
                 lambdaOrdinals = new[] { 
-                    3, // Gizmo -> Debug: Make All Colonists Cult-Minded
-                    4, // Gizmo -> Debug: Upgrade Max Level Altar
-                    7, // Gizmo -> Debug: Always Succeed
-                    8, // Gizmo -> Debug: Force Side Effect
+                    3, // Debug: Make All Colonists Cult-Minded
+                    4, // Debug: Upgrade Max Level Altar
+                    7, // Debug: Always Succeed
+                    8, // Debug: Force Side Effect
                 };
 
-                MpCompat.RegisterLambdaMethod(type, "GetGizmos", lambdaOrdinals);
+                MpCompat.RegisterLambdaMethod(type, "GetGizmos", lambdaOrdinals).SetDebugOnly();
             }
 
             // Building_TotemFertility
+            {
+                var type = AccessTools.TypeByName("CultOfCthulhu.Building_SacrificialAltar");
+                // this calls a delegate may need to sync that instead
+                MP.RegisterSyncMethod(type, "MakeMatchingGrowZone"); // Gizmo? -> MakeMatchingGrowZone   
+            }
+
+            // Building_TreasureChest
             {
                 var type = AccessTools.TypeByName("CultOfCthulhu.Building_SacrificialAltar");
                 // this calls a delegate may need to sync that instead
