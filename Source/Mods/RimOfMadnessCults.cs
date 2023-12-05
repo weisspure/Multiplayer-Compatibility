@@ -78,19 +78,7 @@ namespace Multiplayer.Compat
 
                 MpCompat.RegisterLambdaMethod(type, "GetGizmos", lambdaOrdinals).SetDebugOnly();
             }
-            // ThingWithComps_CultGrimoire
-            {
-                var type = AccessTools.TypeByName("CultOfCthulhu.ThingWithComps_CultGrimoire");
 
-
-                // Lambda Delegates
-                var lambdaOrdinals = new[]
-                {
-                    0, // CommandBuildFKC
-                };
-
-                MpCompat.RegisterLambdaDelegate(type, "GetGizmos", lambdaOrdinals);
-            }
             // SpellWorker_TransmogrifyPets
             {
                 var type = AccessTools.TypeByName("CultOfCthulhu.SpellWorker_TransmogrifyPets");
@@ -106,10 +94,25 @@ namespace Multiplayer.Compat
 
                 MpCompat.RegisterLambdaDelegate(type, "Transmogrify", lambdaOrdinals);
             };
+            // ThingWithComps_CultGrimoire
+            {
+                var type = AccessTools.TypeByName("CultOfCthulhu.ThingWithComps_CultGrimoire");
+
+
+                // Lambda Delegates
+                var lambdaOrdinals = new[]
+                {
+                    0, // CommandBuildFKC
+                };
+
+                MpCompat.RegisterLambdaDelegate(type, "GetGizmos", lambdaOrdinals);
+            }
+
 
             // SpellWorker_PsionicGrowth
             {
                 PatchingUtilities.PatchSystemRand("CultOfCthulhu.SpellWorker_PsionicGrowth:TryExecuteWorker", false);
+                PatchingUtilities.PatchSystemRand("CultOfCthulhu.ReanimatedPawn:PreApplyDamage", false);
             }
         }
     }
