@@ -19,13 +19,8 @@ namespace Multiplayer.Compat
             PatchCultOfCthulhu();
 
             //// CallOfCthulhuCult
-            //{
-            //    var type = AccessTools.TypeByName("CallOfCthulhu.Dialog_CosmicEntityInfoBox");
-            //    MP.RegisterSyncMethod(type, "DoWindowContents"); // Draw Menu
-            //    MP.RegisterSyncMethod(type, "OnCancelKeyPressed"); // Menu -> Cancel Button
-            //    MP.RegisterSyncMethod(type, "OnAcceptKeyPressed"); // Menu -> Accept Button
-            //    MP.RegisterSyncMethod(type, "CreateConfirmation"); // Seems to be empty implementation?
-            //}
+            //
+            //
         }
 
         private static void PatchCultOfCthulhu()
@@ -79,6 +74,21 @@ namespace Multiplayer.Compat
                 MpCompat.RegisterLambdaMethod(type, "GetGizmos", lambdaOrdinals).SetDebugOnly();
             }
 
+            // SpellWorker_AspectOfCthulhu
+            {
+                var type = AccessTools.TypeByName("CultOfCthulhu.SpellWorker_AspectOfCthulhu");
+
+
+                // Lambda Delegates
+                var lambdaOrdinals = new[]
+                {
+                    0, // delegate from if true of finding target.
+                    1, // delegate from if false of finding target.
+                    2, // Unclear but called by ordinal 1
+                };
+
+                MpCompat.RegisterLambdaDelegate(type, "Transmogrify", lambdaOrdinals);
+            };
             // SpellWorker_TransmogrifyPets
             {
                 var type = AccessTools.TypeByName("CultOfCthulhu.SpellWorker_TransmogrifyPets");
@@ -112,8 +122,11 @@ namespace Multiplayer.Compat
             // SpellWorker_PsionicGrowth
             {
                 PatchingUtilities.PatchSystemRand("CultOfCthulhu.SpellWorker_PsionicGrowth:TryExecuteWorker", false);
-                PatchingUtilities.PatchSystemRand("CultOfCthulhu.ReanimatedPawn:PreApplyDamage", false);
+//                PatchingUtilities.PatchSystemRand("CultOfCthulhu.ReanimatedPawn:PreApplyDamage", false);
             }
+            // Assumed to be fixed by DLS (Deterministic Lock-Step) but untested:
+            // LongEventHandler.QueueLongEvent(new Action(SpellWorker_GameEndingEffect.<>c.<>9.<TryExecuteWorker>b__8_0), "Cults_SpellGameEndingEffect", false, null, true);  MpCompat.RegisterLambdaDelegate(CultOfCthulhu.SpellWorker_GameEndingEffect, "TryExecuteWorker", 0);
+            // A lot in SpellWorker_OrbitalInsanityWave.cs
         }
     }
 }
